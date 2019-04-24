@@ -1,5 +1,7 @@
 ## Timothy Gwaltney, Camby Abell, and Jamie Rios
-##
+## CSCI 4130
+## Filename: bibparser.py
+
 ## This program parses a bibliography bibtex file using python
 ## and the BibTexParser library.
 ##

@@ -1,7 +1,6 @@
-/*
-  This program illustrates how to create a Lucene document
-  and index it
-*/
+// Authors: Timothy Gwaltney, Camby Abell, and Jamie Rios
+// CSCI 4130
+// Filename: DocumentIndexing.java
 
 // import java.io.BufferedReader;
 import java.io.IOException;
@@ -97,11 +96,6 @@ public class DocumentIndexing {
 
             IndexWriter writer = new IndexWriter(dir, iwc);
 
-            // code here for processing one Bibliography record at a time
-            // using a loop
-
-            // assuming that values for various fields have been extracted
-
             // create a Lucene document
             Document doc = new Document();
 
@@ -151,7 +145,6 @@ public class DocumentIndexing {
             // add abstract
             doc.add(new TextField("abstract", "The recent emergence of a new class of systems for data management has challenged the well-entrenched relational databases. These systems provide several choices for data management under the umbrella term NoSQL. Making a right choice is critical to building applications that meet business needs. Performance, scalability and cost are the principal business drivers for these new systems. By design, they do not provide all of the relational database features such as transactions, data integrity enforcement, and declarative query language. Instead, they primarily focus on providing near real-time reads and writes in the order of billions and millions, respectively. This paper provides a unified perspective, strengths and limitations, and use case scenarios for the new data management systems.", Field.Store.YES));
 
-
             // index the document
             writer.addDocument(doc);
 
@@ -161,9 +154,6 @@ public class DocumentIndexing {
             System.out.println(" Caught a " + e.getClass() + "\n with message: " + e.getMessage());
         }
 
-
-        // now, test the index
-        // a term query
         try {
             IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexPath)));
             IndexSearcher searcher = new IndexSearcher(reader);
@@ -183,13 +173,10 @@ public class DocumentIndexing {
             for (int i = 0; i < resultSetSize; i++){
                 System.out.println("Document = " + resultSet[i].doc + "\t" + " Score=" + resultSet[i].score);
             }
-
             reader.close();
         }
         catch(IOException e) {
             e.printStackTrace();
         }
-
-
-    } // public static void main
-} // public class DocumentIndexing
+    }
+}

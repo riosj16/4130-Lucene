@@ -1,9 +1,6 @@
-/*
-  This program illustrates term and Boolean queries
-
-  Requires the path to an existing Lucene index
-  through a command line argument
-*/
+// Author: Timothy Gwaltney, Camby Abell, and Jamie Rios
+// CSCI 4130
+// Filename: BasicSearch.java
 
 import java.io.BufferedReader;
 import java.io.IOException;
